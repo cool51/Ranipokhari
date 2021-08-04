@@ -7,13 +7,14 @@
 
 #include "shader_m.h"
 //#include "shader_s.h"
-
-
+#include <cmath>
+#include <chrono>
+#include <thread>
 #include "Camera.h"
 #include "Model.h"
-
 #include <iostream>
 #include "RaniPok.h"
+#include "inputHandle.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
@@ -21,11 +22,11 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos);
 
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
 
-void processInput(GLFWwindow *window);
+//void processInput(GLFWwindow *window);
 
 // settings
-const unsigned int SCR_WIDTH = 1000;
-const unsigned int SCR_HEIGHT = 900;
+const unsigned int SCR_WIDTH = 1100;
+const unsigned int SCR_HEIGHT = 1000;
 
 // camera
 Camera camera(glm::vec3(59.0f, 24.0f, 59.0f));
@@ -38,10 +39,10 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 RaniPokhari rani;
-
+InputProcess input;
 int main() {
-      // glfw: initialize and configure
-      // ------------------------------
+      // initialize glfw
+
       glfwInit();
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
       glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -51,7 +52,7 @@ int main() {
       glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-      // glfw window creation
+      // window
       // --------------------
       GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Ranipokhari", NULL, NULL);
       if (window == NULL) {
@@ -128,24 +129,47 @@ int main() {
 
       // render loop
       // -----------
+      float lighttime=0;
       while (!glfwWindowShouldClose(window)) {
-            // per-frame time logic
+
+            // get time contol keyboard and mouse
             // --------------------
             float currentFrame = glfwGetTime();
             deltaTime = (currentFrame - lastFrame) * 5;
-//            std::cout << "time  " << deltaTime << std::endl;
+            std::cout << "time  " << currentFrame<< std::endl;
             lastFrame = currentFrame;
 
-            // input
+            // chck input
             // -----
-            processInput(window);
-
+//            processInput(window);
+            input.processInput(window,&camera,&rani);
             // render
             // ------
             glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            rani.applyLighting();
+//            if (currentFrame<40)
+//if(lighttime==(int(currentFrame)-100))
+//{
+//      lighttime=currentFrame;
+//}
+
+//if(int(currentFrame) % 2==0)
+//{
+//      lighttime=(currentFrame);
+//}
+
+            {
+
+//                  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            rani.applyDayLighting(sin(pow(currentFrame,0.7)));
+//rani.applyLighting();
+            }
+//            else
+//            {
+//                  rani.applyLighting();
+//            }
+
 
             rani.Draw();
 
@@ -261,19 +285,19 @@ int main() {
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------
-void processInput(GLFWwindow *window) {
-      if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-            glfwSetWindowShouldClose(window, true);
-
-      if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            rani.camera.ProcessKeyboard(FORWARD, deltaTime);
-      if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            rani.camera.ProcessKeyboard(BACKWARD, deltaTime);
-      if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            rani.camera.ProcessKeyboard(LEFT, deltaTime);
-      if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            rani.camera.ProcessKeyboard(RIGHT, deltaTime);
-}
+//void processInput(GLFWwindow *window) {
+//      if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+//            glfwSetWindowShouldClose(window, true);
+//
+//      if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+//            rani.camera.ProcessKeyboard(FORWARD, deltaTime);
+//      if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+//            rani.camera.ProcessKeyboard(BACKWARD, deltaTime);
+//      if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+//            rani.camera.ProcessKeyboard(LEFT, deltaTime);
+//      if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+//            rani.camera.ProcessKeyboard(RIGHT, deltaTime);
+//}
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
