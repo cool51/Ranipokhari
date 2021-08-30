@@ -35,6 +35,6 @@ Clone this repo in same environment and run main.cpp
 
 ![Night view top](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-22%2020-04-59.png)
 ![Day view front](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2011-59-44.png)
-![alt text] https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2012-00-00.png
+![alt text](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2012-00-00.png)
 
 
