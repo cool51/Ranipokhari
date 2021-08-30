@@ -33,9 +33,7 @@ Clone this repo in same environment and run main.cpp
 
 # Output of project
 
-
-
-
+![alt text](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-22%2020-04-59.png)
 
 
 
