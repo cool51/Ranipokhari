@@ -17,19 +17,20 @@
 ## Programming tools
 - C++
 - GLSL
-
 ## Libraries used
 - OpenGL
 - GLFW
 - -GLAD
 - -GLM
 - ASSIMP
-- 
+- GLEW
 ## Installation
 
 Install all above mentioned libraries in your C++ programming environment
 Assimp is dynamic library so take that into consideration
 Clone this repo in same environment and run main.cpp
+
+If you are using any linux distributions and using any text editor and have any problem setting up above mentioned libraries try below mentioned link https://rizaldijs.wordpress.com/2017/10/28/setting-up-glfw-glad-with-clion-on-ubuntu/
 
 # Output of project
 
