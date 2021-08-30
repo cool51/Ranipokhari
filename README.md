@@ -13,7 +13,6 @@
 - Reflection of Temple ,surroundings and Ghantaghar in the pond
 - Simulation of day to night and night to day transformation through lighting effects from sun/moon(directional lights) and lamps(point light)
 - Simple virtual tour through keyboard and mouse controls 
-- 
 ## Programming tools
 - C++
 - GLSL
@@ -36,6 +35,6 @@ If you are using any linux distributions and using any text editor and have any 
 
 ![Night view top](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-22%2020-04-59.png)
 ![Day view front](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2011-59-44.png)
-![alt text](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2012-00-00.png)
+![Evening view frontt](https://github.com/cool51/Ranipokhari/blob/main/Screenshot%20from%202021-08-23%2012-00-00.png)
 
 
